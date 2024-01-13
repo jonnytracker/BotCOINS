@@ -1,5 +1,5 @@
-it works for the old lambo rider.. not miami rider
-Run the bot on this screen.
+It works for the old lambo rider.. not miami rider, change color pixel values in utils to work
+. Run the bot on this screen.
 
 
 
