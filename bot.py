@@ -48,19 +48,7 @@ class LamboBot():
         else:
             action = 0
 
-        # Works but its risky
-        """if OcupiedLanes == [0, 0, 0]:
-            if CoinLanes[0] != 0:
-                if observation["position"] == 1:
-                    action = 2
-                elif observation["position"] == 2:
-                    action = 1
-            elif CoinLanes[1] != 0:
-                action = 1
-            elif CoinLanes[2] != 0:
-                action = 2
-            else:
-                action = 0"""
+ 
 
         # Perform the action in the game using pydirectinput
         # 0 -> nothing, 1 -> up, 2 -> down

@@ -6,19 +6,6 @@ import time
 
 IMAGE_SIZE = 80
 
-"""restart_button_location = None
-def get_restart_button():
-    global restart_button_location
-    if restart_button_location != None:
-        return restart_button_location
-    else:
-        try: 
-            if pyautogui.locateOnScreen('images/RestartButton.png', confidence=0.6) is not None:
-                restart_button_location = pyautogui.locateOnScreen('images/RestartButton.png', confidence=0.6)
-        except:
-            return None
-        
-        return restart_button_location"""
 
 # Global variable to store the location of the lives indicator
 lives_location = None
@@ -67,7 +54,7 @@ def start():
                 time.sleep(0.1)
                 pyautogui.click()
                 locate_screen()
-                time.sleep(6)
+                time.sleep(4)
     except:
         try: 
             if pyautogui.locateOnScreen('images/RestartButton.png', confidence=0.8) is not None:
@@ -102,20 +89,11 @@ camera = dxcam.create()
 camera.start()
 # Initialize variables related to the game state
 
-"""lives_ammount = 3
-key_locations_x = [706, 706, 706, 1135, 1135, 1135]
-future_key_locations_x = [706, 706, 706, 1435, 1435, 1435]
-key_locations_y = [750, 671, 853, 769, 665, 920]
-car_color = np.array([[255, 213,  65], [255, 213, 65], [249, 163, 27]], dtype=np.uint8)
-floor_color = np.array([153, 138, 141], dtype=np.uint8)
-floor_colors = np.array([[153, 138, 141], [141, 127, 131], [132, 137, 154], [128, 132, 149], [179, 185, 209], [123, 127, 143], [193, 199, 215], [153, 172, 181], [180, 32, 42], [155, 148, 140], [186, 186, 179], [147, 132, 136]], dtype=np.uint8)
-prev_position = 0
-coin_y_positions = [796, 670, 924]"""
 
 lives_ammount = 3
-key_locations_x = [706, 706, 706, 1135, 1135, 1135]
-future_key_locations_x = [706, 706, 706, 1435, 1435, 1435]
-key_locations_y = [750, 671, 880, 769, 665, 920]
+key_locations_x = [1337, 1337, 1337]
+future_key_locations_x = [565, 565, 565]
+key_locations_y = [553, 635, 718]
 car_color = np.array([[255, 213,  65], [255, 213, 65], [255, 213, 65]], dtype=np.uint8)
 floor_color = np.array([153, 138, 141], dtype=np.uint8)
 floor_colors = np.array([[153, 138, 141], [141, 127, 131], [132, 137, 154], [128, 132, 149], [179, 185, 209], [123, 127, 143], [193, 199, 215], [153, 172, 181], [180, 32, 42], [155, 148, 140], [186, 186, 179], [147, 132, 136], [128, 133, 150], [196, 202, 217], [74, 66, 68], [144, 130, 134], [177, 183, 207], [218, 224, 234]], dtype=np.uint8)
@@ -187,21 +165,21 @@ def get_all_info():
     terminated = False
     try:
         if lives_ammount == 3:
-            pixel = get_pixel_color(frame, get_lives_location(), 70, 10)
+            pixel = get_pixel_color(frame, get_lives_location(), 631, 137)
             if pixel != [173, 90, 81]:
                 print("2 lives left")
                 lives_ammount = 2
                 live_lost = True
 
         elif lives_ammount == 2:
-            pixel = get_pixel_color(frame, get_lives_location(), 50, 10)
+            pixel = get_pixel_color(frame, get_lives_location(), 613, 137)
             if pixel != [173, 90, 81]:
                 print("1 lives left")
                 lives_ammount = 1
                 live_lost = True
             
         if lives_ammount == 1:
-            pixel = get_pixel_color(frame, get_lives_location(), 10, 10)
+            pixel = get_pixel_color(frame, get_lives_location(), 597, 137)
             if pixel != [173, 90, 81]:
                 print("0 lives left, restarting")
                 lives_ammount = 0
@@ -276,31 +254,3 @@ def get_screen():
             "info": np.array(ocup)
         }
 
-# Outdated
-"""
-def get_lives():
-    global lives_ammount
-    try:
-        if lives_ammount == 3:
-            pixel = get_pixel_color(get_lives_location(), 50, 5)
-            if pixel != (173, 90, 81):
-                print("2 lives left")
-                lives_ammount = 2
-                return 2
-
-        elif lives_ammount == 2:
-            pixel = get_pixel_color(get_lives_location(), 30, 5)
-            if pixel != (173, 90, 81):
-                print("1 lives left")
-                lives_ammount = 1
-                return 1
-            
-        if lives_ammount == 1:
-            pixel = get_pixel_color(get_lives_location(), 5, 5)
-            if pixel != (208, 147, 141):
-                print("0 lives left, restarting")
-                lives_ammount = 0
-                return 0
-        return 3
-    except:
-        return 3"""
