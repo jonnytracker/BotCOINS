@@ -49,23 +49,27 @@ def LamboRiderRun():
                                 while GameOver != True:
                                     print("Game running")
 
+                                    
                                     mouse.position = (1337, 569)
                                     print("mouse moved to top ")
                                     r,g,b = pyautogui.pixel(1337,569)
-                                    print(f"pixel color of top: R:{r}, G:{g}, B:{b}")
+                                    print(f"pixel color of top: R:{r}, G:{g}, B:{b}")  #pixel color of top: R:117, G:101, B:208
+
                                     time.sleep(2)
-                                    
+
                                     mouse.position = (1337, 650)
                                     print("Mouse moved to middle row")
-                                    r,g,b = pyautogui.pixel(1337,569)
-                                    print(f"pixel color of midlle: R:{r}, G:{g}, B:{b}")
+                                    r,g,b = pyautogui.pixel(1337,650)
+                                    print(f"pixel color of midlle: R:{r}, G:{g}, B:{b}") #pixel color of midlle: R:158, G:113, B:211
                                     time.sleep(2)
 
                                     mouse.position = (1337, 734)
                                     print("Mouse moved to bottom")
-                                    r,g,b = pyautogui.pixel(1337,569)
-                                    print(f"pixel color of bottom: R:{r}, G:{g}, B:{b}")
+                                    r,g,b = pyautogui.pixel(1337,734)
+                                    print(f"pixel color of bottom: R:{r}, G:{g}, B:{b}") #pixel color of bottom: R:194, G:128, B:214
                                     time.sleep(2)
+
+                                    GameOver = True
 
 
 
@@ -78,5 +82,3 @@ def LamboRiderRun():
         print(e)
 
 
-
-LamboRiderRun()
